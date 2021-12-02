@@ -99,7 +99,6 @@ y %= 2;
 // implicit casting
 int z = 245;
 long a = z;
-a += 9023372036854775807L;
 z = (int)a;
 
 // explicit casting
