@@ -98,6 +98,34 @@ int CallMySelfAgain(int number)
 }
 
 
+// FUnction OUT parameter
+// out parameter is an ADDITIONAL parameter assigned to your 
+// function definition, the entire point of the out parameter
+// is to provide additional OUTPUT for your function.  however
+// only use this in a TryGet pattern if you can.
+// YOU HAVE to assign your out parameter a VALUE in all 
+// valid code paths to finish the function, JUST like
+// the return keyword
+bool TryGetLegalDrinkingAge(string userInput, out int age)
+{
+    if (int.TryParse(userInput, out int parsedAge) && parsedAge >= 21 && parsedAge < 150)
+    {
+        age = parsedAge;
+        return true;
+    }
+
+    age = -1;
+    return false;
+}
+
+if (TryGetLegalDrinkingAge("23", out int age))
+{
+    Console.WriteLine(age);
+}
+else
+{
+    Console.WriteLine("get ouuta here");
+}
 
 
 
