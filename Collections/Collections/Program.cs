@@ -230,5 +230,133 @@ int[] listOfInts = { 1, 2, 3, 4, 5};
 int sum = SumOfAllInts(listOfInts);
 Console.WriteLine(sum);
 
+
+// Generic Collections
+
+// List
+// A list is Dynamically sized collection of one single type
+// Which is to say a List can shrink or Grow (When Googling, a List is
+// called a Vector in other languages, like c, c++, Rust, Haskell)
+// in javascript they are called Arrays.
+// This is BY FAR THE MOST USED Collection withen the dotnet ecosystem
+// especially in web development, List is the most preferred data structure
+
+// the '<' '>' brackets are GENERIC brackets, which means YOU the dev
+// needs to state the TYPE you want to use, ie, a List<int>, List<string>..
+// in the case for list, literally ANY type can be placed in the 
+// brackets
+List<string> namesList = new List<string>();
+
+// you can elements to a list as much as you want
+// when ADDING an element, you are actively INCREASING the COUNT of 
+// your list
+namesList.Add("James");
+
+// like an array, you can Access elements using bracket / index notation
+string myName = namesList[0];
+
+// LIst do NOT have a LENGTH property associated with it, in order to
+// figure out how many elements exist inside of a List, you call the
+// .Count property instead
+Console.WriteLine($"My names List contains {namesList.Count} elements");
+
+// you can also remove an element from a List, which will decrease 
+// it's Count
+namesList.Remove("James");
+
+namesList.Add("Jimmy");
+
+// changing the value at a specified index does NOT increase the count of
+// a list, you are simply modifying an existing index element.
+namesList[0] = "James";
+
+foreach (string name in namesList)
+{
+    Console.WriteLine(name);
+}
+
+
+int VowelCount(List<string> words)
+{
+    int sum = 0;
+    string vowels = "aeiou";
+    // {"Dog", "Cat", "Mouse"}
+    foreach (string word in words)
+    {
+        foreach (char letter in word)
+        {
+            if (vowels.Contains(letter))
+            {
+                sum++;
+            }
+        }
+    }
+
+    return sum;
+}
+
+
+// this is called List Literal, or Literal expression, essentially
+// we are creating a new List with starting "data". also known as
+// Object initilization syntax.
+List<string> animals = new List<string> { "Dog", "Cat", "Mouse" };
+List<string> otherAnimals = animals;
+int vowelsInAnimals = VowelCount(animals);
+Console.WriteLine(vowelsInAnimals);
+
+// Dictionary 
+// A dictionary is a collection of Key Value Pairs, where you the developer
+// assigns a Key, which is the Lookup for your Value
+
+
+// Dictionaries are used for lookups, if you happen to have the Key, you then
+// look up your value with that key.  Dictionaries are collections you RARELY want
+// to loop over.  WHy is this? because they are NOT NATIVELY Loopable.
+
+// behind the scenes, a Dictionary is a Hash Table. (google it)
+// the main reason we use dictionaries is because they are extrmely fast at looking
+// up key values.
+
+// Dictionaries Like List are dynamic in size. you can continue to add key values
+// to a dictionary.
+
+// Keys are UNIQUE... let me repeat that, KEYS ARE UNIQUE, which means, you can 
+// ONLY have one key for a value
+
+// when creating a dictionary, the Key is "usually" going to be an enum or 
+// a string, value.. skies the limit
+Dictionary<string, string> classDictionary = new Dictionary<string, string>();
+
+// the Key here is "James", the Value is WHAT is being assigned to that "Key"
+classDictionary["James"] = "Instructor for the AHBC Dotnet class";
+// There can ONLY be One key of that value in a dictionary
+classDictionary["James"] = "A big doo doo head";
+classDictionary["Bob"] = "A student in the AHBC Dotnet class, works for the FOC";
+
+// classDictionary.Add("James", "lol jk, he's the instructor again");
+
+// to get a value, is just like getting a value in an array or list, except you do 
+// not provide an index number, you provide the key!
+string personDescription = classDictionary["James"];
+
+string otherPersonDescription = classDictionary["Albert"];
+
+// defensively get and set data in your dictionary
+// this will ONLY add this Key Value IF the key does NOT exist already
+if (!classDictionary.TryAdd("James", "lol jk he's an instructor again"))
+{
+    Console.WriteLine("Hey, this key James already exist, cannot overwrite key value");
+}
+
+// how to get a value from a dictionary by Key Safely, you can Try and Get
+// the value by key, if the key value does not exist, TryGetValue will
+// return false
+if (classDictionary.TryGetValue("James", out string instructorDescription))
+{
+
+}
+
+
+
 // This only exist so my program does not close
 Console.ReadLine();
