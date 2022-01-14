@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace fourpillars
 {
-    public class Animal
+    public abstract class Animal
     {
         // protected members CAN be inherited, just not publicly exposed
         protected string _color; // not all fields will be interacted with your properties
@@ -51,6 +51,11 @@ namespace fourpillars
         }
 
         public bool IsMansBestFriend { get; set; }
+
+        public override string MakeNoise()
+        {
+            return "Bark!";
+        }
     }
 
     // cat is inheriting from Animal
@@ -108,5 +113,22 @@ namespace fourpillars
         {
             return base.MakeNoise();
         }
+
+        public bool IsSassy { get; set; }
     }
+
+
+    public class Mouse : Animal
+    {
+        public Mouse(string name) : base(name)
+        {
+
+        }
+
+        public override string MakeNoise()
+        {
+            return "Squeek!";
+        }
+    }
+
 }
