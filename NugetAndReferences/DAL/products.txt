@@ -1,0 +1,15 @@
+﻿Id,Name,Description,Category,Price
+10,Burger,Burger Patty,Food,10      
+11,Cheeseburger,Burger Patty with Cheese,Food,12      
+12,Vegan Burger,Vegan Burger Patty,Food,19       
+13,Bacon Cheeseburger,Burger Patty with Bacon and Cheese,Food,15    
+14,Double Burger,Two Burger Patties,Food,13
+15,Double Cheeseburger,Two Burger Patties with Cheese,Food,16
+16,Child Drink,Child-sized Cold Beverage,Drink,2      
+17,12 oz Drink,12 ounce Cold Beverage,Drink,3      
+18,16 oz Drink,16 ounce Cold Beverage,Drink,4      
+19,24 oz Drink,24 ounce Cold Beverage,Drink,5        
+20,12 oz Milkshake,12 ounce Milkshake,Drink,6        
+21,Child Fries,Child-sized Fried Potatoes,Side,2        
+22,Fries,Fried Potatoes with Salt,Side,5        
+23,Loaded Fries,Fried Potatoes with Bacon and Cheese,Side,7    
