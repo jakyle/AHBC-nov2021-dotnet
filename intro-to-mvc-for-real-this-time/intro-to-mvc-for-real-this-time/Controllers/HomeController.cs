@@ -20,16 +20,21 @@ namespace intro_to_mvc_for_real_this_time.Controllers
             _logger = logger;
         }
 
-
-        //     controller name -> vvv  vvv  <- Action name
+        //     controller name -> vvv   vvv  <- Action name
         // https://localhost:5001/Home/Index
         public IActionResult Index()
-        {
+        { 
             return View();
         }
 
         // https://localhost:5001/Home/Privacy
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        // https://localhost:5001/Home/About
+        public IActionResult About()
         {
             return View();
         }

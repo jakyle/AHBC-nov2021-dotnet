@@ -1,0 +1,32 @@
+﻿@model intro_to_mvc_for_real_this_time.Models.Dog.IndexViewModel
+
+@{
+    var name = "James";
+    Console.WriteLine(name);
+}
+
+<style>
+    .dog-image-container {
+        height: 50vh;
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .dog-text-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+</style>
+
+
+<div class="dog-image-container">
+    <div class="dog-text-container">
+        <p>@Model.Name</p>
+        <p>@Model.Description</p>
+    </div>
+    <img src="https://images.dog.ceo/breeds/retriever-chesapeake/n02099849_693.jpg"/>
+</div>
