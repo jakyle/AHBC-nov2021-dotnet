@@ -1,0 +1,11 @@
+﻿@model MVC_forms.Models.Home.NumberViewModel
+
+
+
+<h1>Your Total is: @Model.Total</h1>
+
+<form asp-controller="Home" asp-action="Number">
+    <label asp-for="Number"></label>
+    <input asp-for="Number" />
+    <button type="submit">Submit</button>
+</form>

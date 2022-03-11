@@ -1,0 +1,17 @@
+﻿@model MVC_forms.Models.Home.IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form asp-controller="Home" asp-action="User">
+        <label asp-for="User.Name"></label>
+        <input asp-for="User.Name">
+
+        <label asp-for="User.PhoneNumber"></label>
+        <input asp-for="User.PhoneNumber" />
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
