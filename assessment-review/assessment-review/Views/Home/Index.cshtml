@@ -1,0 +1,15 @@
+﻿@model assessment_review.Models.Home.IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-controller="Home" asp-action="Username">
+    <label asp-for="UserName"></label>
+    <input asp-for="UserName" />
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+
+    <button type="submit">Submit</button>
+</form>
