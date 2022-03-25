@@ -1,0 +1,11 @@
+﻿@model Entity_Web_App.Models.Home.AddStudentViewModel
+
+<form asp-controller="Home" asp-action="AddStudent" method="post">
+    <label asp-for="Student.Name"></label>
+    <input asp-for="Student.Name"/>
+
+    <label asp-for="Student.Grade"></label>
+    <input asp-for="Student.Grade"/>
+
+    <button type="submit">Add Student</button>
+</form>

@@ -1,0 +1,40 @@
+﻿@model Entity_Web_App.Models.Home.IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .student-list {
+        list-style: none;
+    }
+
+    .student-item {
+        display: flex;
+        width: 10em;
+        justify-content: space-between;
+        list-style: none;
+    }
+</style>
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div>
+    <ul class="student-list">
+        @foreach (var student in Model.Students)
+       {
+            <li class="student-item">
+                <p>Name: @student.Name</p>
+                <p>Grade: @student.Grade</p>
+                <a asp-controller="Home" asp-action="UpdateStudent" asp-route-id="@student.StudentId">✏</a>
+                <a asp-controller="Home" asp-action="DeleteStudent" asp-route-id="@student.StudentId">❌</a>
+                @*localhost:4200/Home/DeleteStudent/56*@
+            </li>
+       }
+    </ul>
+</div>

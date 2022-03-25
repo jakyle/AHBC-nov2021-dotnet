@@ -16,7 +16,7 @@ namespace Entity_Console.Services
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-             @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=School;Integrated Security=True");
+             @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=School; Integrated Security=True");
         }
     }
 

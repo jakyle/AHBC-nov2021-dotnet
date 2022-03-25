@@ -1,0 +1,12 @@
+﻿@model Entity_Web_App.Models.Home.UpdateStudentViewModel
+
+
+<form asp-controller="Home" asp-action="UpdateStudent" asp-route-id="@Model.Student.StudentId" method="post">
+    <label asp-for="Student.Name"></label>
+    <input asp-for="Student.Name"/>
+
+    <label asp-for="Student.Grade"></label>
+    <input asp-for="Student.Grade"/>
+
+    <button type="submit">Update Student</button>
+</form>

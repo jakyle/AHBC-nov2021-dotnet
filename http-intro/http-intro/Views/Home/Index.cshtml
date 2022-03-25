@@ -1,0 +1,12 @@
+﻿@model http_intro.Models.Home.IndexViewModel
+
+<div class="text-center">
+    <h2>Star Wars Planet names!</h2>
+    <ul>
+        @foreach (var name in Model.PlanetNames)
+       {
+           <li>@name</li>
+       }
+    </ul>
+</div>
+
