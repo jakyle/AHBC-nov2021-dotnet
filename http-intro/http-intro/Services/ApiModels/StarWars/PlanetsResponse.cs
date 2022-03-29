@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace http_intro.Services.ApiModels.StarWars
 {
+    // this is the object we expect to get back from the star wars api
     public class PlanetsResponse
     {
         public int count { get; set; }

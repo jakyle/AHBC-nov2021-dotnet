@@ -25,6 +25,9 @@ namespace http_intro.Services
         public StarWarsClient(HttpClient client, IOptions<StarWarsClientConfig> config)
         {
             _httpClient = client;
+
+            // you only need to set a base url if you are NOT setting up the base url in 
+            // startup.cs
             _baseUrl = config.Value.BaseUrl;
         }
 
@@ -34,7 +37,16 @@ namespace http_intro.Services
             // when you make an http request, you ONLY have to put in the rest of the end
             // point, it will be automatically appended to the BAseURL that was setup
             // in your appsettings.json
-            var httpResponseMessage = await _httpClient.GetAsync("planets");
+            HttpResponseMessage httpResponseMessage =  await _httpClient.GetAsync("planets");
+            
+            // the typical steps when writing an async method
+            // 1. you don't make it async until you need to.
+            // 2. the moment YOU are calling a method that returns a Task or Task<something>, you 
+            // then use the await keyword to resolve or wait for that task to complete.
+            // 3. you then use the async method modifier to make your method async
+            // 4. you change your return type to be a TAsk. if your method is void => Task
+            // if your method is returning an actual type, it becomes Task<yourtype>
+            // 5. any method that is calling your now async method, ALSO needs to be turned async
 
             // the await keyword will WAIT for the TASK to complete, and return
             // the value that the Task was "fetching".
@@ -42,7 +54,6 @@ namespace http_intro.Services
             var response = await JsonSerializer.DeserializeAsync<PlanetsResponse>(content);
 
             return response;
-
         }
     }
 

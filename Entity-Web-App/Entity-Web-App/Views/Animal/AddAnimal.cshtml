@@ -1,0 +1,11 @@
+﻿@model Entity_Web_App.Models.Animal.AddAnimalViewModel
+
+<form asp-controller="Animal" asp-action="AddAnimal" method="post">
+    <label asp-for="Animal.Name"></label>
+    <input asp-for="Animal.Name" />
+
+    <label asp-for="Animal.Type"></label>
+    <input asp-for="Animal.Type" />
+
+    <button type="submit">Add Animal</button>
+</form>

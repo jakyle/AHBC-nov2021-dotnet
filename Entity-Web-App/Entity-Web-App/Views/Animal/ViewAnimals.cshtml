@@ -1,0 +1,14 @@
+﻿@model Entity_Web_App.Models.Animal.ViewAnimalsViewModel
+
+
+<div>
+    <ul>
+        @foreach (var animal in Model.Animals)
+        {
+            <li>
+                <p>Name: @animal.Name</p>
+                <p>Type: @animal.Type</p>
+            </li>
+        }
+    </ul>
+</div>

@@ -56,7 +56,7 @@ namespace Entity_Web_App.Services
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(
+            optionsBuilder.UseSqlServer( // your connection string goes INSIDE THIS METHOD, ALSO CHANGE THE INITIAL CATALOG TO YOUR DATABASE
              @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=School;Integrated Security=True");
         }
     }

@@ -17,6 +17,8 @@ namespace http_intro.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IStarWarsClient _client;
 
+
+        // Using dependency injection, we are able to acces our StarWars CLient INterface / contract
         public HomeController(ILogger<HomeController> logger, IStarWarsClient client)
         {
             _logger = logger;
