@@ -1,3 +1,5 @@
+using intro_web_api.Services;
+using intro_web_api.Services.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,8 +28,12 @@ namespace intro_web_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<ISchoolContext, SchoolContext>();
             services.AddControllers();
+
+
+            // swagger is a self document api library.  any controllers that has a [ApiController] attribute will
+            // be auto documented by swagger.
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "intro_web_api", Version = "v1" });

@@ -38,7 +38,9 @@ namespace http_intro.Services
             // point, it will be automatically appended to the BAseURL that was setup
             // in your appsettings.json
             HttpResponseMessage httpResponseMessage =  await _httpClient.GetAsync("planets");
-            
+            HttpResponseMessage httpResponseMessage = await _httpClient.DeleteAsync("planets");
+
+
             // the typical steps when writing an async method
             // 1. you don't make it async until you need to.
             // 2. the moment YOU are calling a method that returns a Task or Task<something>, you 
