@@ -38,7 +38,6 @@ namespace http_intro.Services
             // point, it will be automatically appended to the BAseURL that was setup
             // in your appsettings.json
             HttpResponseMessage httpResponseMessage =  await _httpClient.GetAsync("planets");
-            HttpResponseMessage httpResponseMessage = await _httpClient.DeleteAsync("planets");
 
 
             // the typical steps when writing an async method
@@ -53,9 +52,9 @@ namespace http_intro.Services
             // the await keyword will WAIT for the TASK to complete, and return
             // the value that the Task was "fetching".
             var content = await httpResponseMessage.Content.ReadAsStreamAsync();
-            var response = await JsonSerializer.DeserializeAsync<PlanetsResponse>(content);
+            var planetsResponse = await JsonSerializer.DeserializeAsync<PlanetsResponse>(content);
 
-            return response;
+            return planetsResponse;
         }
     }
 
