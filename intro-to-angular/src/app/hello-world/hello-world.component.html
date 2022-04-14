@@ -1,0 +1,42 @@
+<!-- you can access any PUBLIC class MEMBERS to display the outputed data using 
+double curly  brackets -->
+
+<p>{{displayText("woah dude!")}}: my message for you is! {{message}}</p>
+<app-picture-example imageUrl="https://2.bp.blogspot.com/-CK6EN7xY2JY/T4k9fmdGJ7I/AAAAAAAAGDs/7YHvdNa-fbs/s1600/cute-puppy-wallpapers+(1).jpg"></app-picture-example>
+
+<!-- you use control flow, ie For Of loops, and if statements in your angular template html. -->
+<!-- we do this by using structural directives, which is a fancy way of saying an "html attribute" -->
+<!-- that dictates IF we should RENDER the html or not, ie, RENDER the STRUCTURE, hence, STRUCTURAL DIRECTIVE -->
+
+
+<!-- if statement -->
+<p class="conditional-message" *ngIf="message.length > 5">
+	Hey guys, heh, I'm being rendered!
+</p>
+
+<!-- if else -->
+<p class="conditional-message" *ngIf="message.length > 5; else shortMessage">
+	I'm the true path for being rendered
+</p>
+
+
+<!-- in order to access the else block, you HAVE to use an ng-template, then "#nameOfTemplate" -->
+<!-- and the original if statement has to then reference this else template, note the syntax above -->
+<ng-template #shortMessage> <!-- you can name templates using '#' -->
+	<p class="conditional-message">
+		I'm the false path for being rendered
+	</p>
+</ng-template>
+
+<!-- ng-template is a special structural directive, it's purpose is to be named and then other
+structural directive will reference it. but it is still a structural directive, which means
+it will either render html, or not -->
+
+<!-- for loop -->
+<ul>
+	<li *ngFor="let name of names">
+		<!-- if you are looping, you can also access the variable data using double brackets
+		as well -->
+		<p>{{name}}</p>
+	</li>
+</ul>

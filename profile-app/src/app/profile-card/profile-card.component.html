@@ -1,0 +1,14 @@
+<div class="profile-card">
+	<div *ngIf="profilePic; else noPic" class="profile-card__img">
+		<img class="profile-img" src={{profilePic}} alt="profile-img">
+	</div>
+
+	<ng-template #noPic>
+		<p>no image provided...</p>
+	</ng-template>
+
+	<div class="profile-card__info">
+		<h2>{{name}}</h2>
+		<p>{{description}}</p>
+	</div>
+</div>

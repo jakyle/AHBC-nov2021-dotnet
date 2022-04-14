@@ -28,7 +28,7 @@ namespace intro_web_api.Controllers
         [Route("{index}")]
         public IActionResult GetDog([FromRoute] int index)
         {
-            if (_dogs.Count < index)
+            if (_dogs.Count < index && index >= 0)
             {
                 return Ok(_dogs[index]);
             }

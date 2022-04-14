@@ -1,0 +1,13 @@
+<h2>{{title}}</h2>
+
+<app-add-sub-number></app-add-sub-number>
+
+<div>
+  <app-profile-card
+    *ngFor="let profile of profiles"
+    profilePic={{profile.profilePic}}
+    name={{profile.name}}
+    description={{profile.description}}
+  >
+  </app-profile-card>
+</div>
