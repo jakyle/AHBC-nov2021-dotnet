@@ -1,0 +1,41 @@
+<form>
+	<label for="name">Name</label>
+	<!-- so in order to have our input field USE our form control that we 
+	created in the component.ts file, we have to use the [formControl] directive, and assign
+	the directive your defined form control -->
+	<input type="text" [formControl]="nameFormControl" />
+
+
+	<label for="emailAddress">Email Address</label>
+
+	<!-- when working with an individual form control and NOT a 
+	form group, you would BIND the entire form control into the input field -->
+	<input type="text" [formControl]="emailFormControl" />
+
+</form>
+
+
+<!-- the nameFormControl is STILL just a property defined in your component class,
+as such, we are able to access it anywhere in the actual template -->
+<p>name value: {{  nameFormControl.value }}</p>
+<p>email value: {{  emailFormControl.value }}</p>
+
+
+<!-- when working with form groups, you can bind the entire form group to the form itself -->
+<form [formGroup]="contactFormGroup" (submit)="submitForm()">
+	<label for="name">Name: </label>
+	<!-- when working with a form control that EXIST IN A FORM GROUP and your FORM GROUP
+	is BOUND to the form html element, in order to BIND your form control to the input field,
+	you instead use formControlName, and simply assign the name of the form control to the
+	formControlName directive. -->
+	<input type="text" formControlName="name">
+
+	<label for="email">Email: </label>
+	<input type="email" formControlName="email">
+
+	<button type="submit">Submit form!</button>
+</form>
+
+<pre>
+	{{ contactFormGroup.value | json }}
+</pre>
