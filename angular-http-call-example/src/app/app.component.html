@@ -1,0 +1,8 @@
+STar Wars People
+<pre *ngIf="person$ | async as person; else gettingPerson">
+  {{ person | json }}
+</pre>
+
+<ng-template #gettingPerson>
+  <p>loading, please wait...</p>
+</ng-template>
