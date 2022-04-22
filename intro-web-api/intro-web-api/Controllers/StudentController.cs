@@ -2,6 +2,7 @@
 using intro_web_api.Services.DALModels;
 using intro_web_api.Services.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace intro_web_api.Controllers
 {
@@ -21,6 +22,8 @@ namespace intro_web_api.Controllers
         [HttpGet]
         public IActionResult GetAllStudents()
         {
+            var students = _schoolContext.GetStudents();
+
             return Ok(_schoolContext.GetStudents());
         }
 

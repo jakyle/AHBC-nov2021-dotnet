@@ -30,6 +30,17 @@ namespace intro_web_api
         {
             services.AddDbContext<ISchoolContext, SchoolContext>();
             services.AddControllers();
+            services.AddCors(corsOption =>
+            {
+                // each policy created is allowing a specific http request FROM A BROWSWER
+                // service to communicate with this web app
+                corsOption.AddDefaultPolicy(policy =>
+                {
+                    policy.AllowAnyHeader(); // we haven't tealked about those yet...
+                    policy.AllowAnyMethod(); // this is your HTTP Get, Put, Delete, Post
+                    policy.AllowAnyOrigin(); // origin, is the actual domain thats calling this app
+                });
+            });
 
 
             // swagger is a self document api library.  any controllers that has a [ApiController] attribute will
@@ -51,6 +62,8 @@ namespace intro_web_api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors();
 
             app.UseRouting();
 

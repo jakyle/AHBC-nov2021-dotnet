@@ -1,0 +1,15 @@
+<form [formGroup]="addStudentFormGroup" (submit)="submitStudent()">
+	<div>
+		<label>Name:</label>
+		<input type="text" formControlName="name">
+	</div>
+
+	<div>
+		<label>Grade:</label>
+		<input type="text" formControlName="grade">
+	</div>
+
+	<div>
+		<button type="submit">ADD STUDENT</button>
+	</div>
+</form>

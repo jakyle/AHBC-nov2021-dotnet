@@ -1,0 +1,16 @@
+<ul *ngIf="students.length > 0; else waitingForStudents">
+
+<li *ngFor="let student of students">
+	<div>
+	<p>name: 
+		<a [routerLink]="['/student', student.studentId]">{{student.name}}</a>
+		<button (click)="deleteStudent(student.studentId)">❌</button>
+	</p>
+	</div>
+</li>
+
+</ul>
+
+<ng-template #waitingForStudents>
+	<p>getting students...</p>
+</ng-template>

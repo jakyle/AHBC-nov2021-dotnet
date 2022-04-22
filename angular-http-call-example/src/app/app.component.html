@@ -1,6 +1,6 @@
 STar Wars People
 <pre *ngIf="person$ | async as person; else gettingPerson">
-  {{ person | json }}
+  name: {{ person.name }}
 </pre>
 
 <ng-template #gettingPerson>

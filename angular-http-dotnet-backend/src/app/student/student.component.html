@@ -1,0 +1,8 @@
+<div *ngIf="student$ | async as student; else gettingStudent">
+	<h1>Name: {{student.name}}</h1>
+	<h1>Grade: {{student.grade}}</h1>
+</div>
+
+<ng-template #gettingStudent>
+	<p>getting student...</p>
+</ng-template>
