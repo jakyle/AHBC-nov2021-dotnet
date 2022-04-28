@@ -1,5 +1,6 @@
 ﻿using Entity_Web_App.Services.DALModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 
 namespace Entity_Web_App.Services
@@ -8,6 +9,11 @@ namespace Entity_Web_App.Services
 
     public class SchoolContext : DbContext, ISchoolContext
     {
+        public SchoolContext(IOptions<DBConfig> dbConfig)
+        {
+            var connectionString = dbConfig.Value.Default;
+        }
+
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
 

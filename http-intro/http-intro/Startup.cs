@@ -29,6 +29,7 @@ namespace http_intro
             // THis is how you pull out appsetttings.json and store it into a global object that you
             // will use throughout your application
             services.Configure<StarWarsClientConfig>(Configuration.GetSection("StarWarsClientConfig"));
+            services.Configure<DBConfig>(Configuration.GetSection("ConnectionStrings"));
 
             // Configure will Get the Section you want out of your appsettings.Json, and BIND IT
             // ie. create an object for you of the type you provide in the Configure Method

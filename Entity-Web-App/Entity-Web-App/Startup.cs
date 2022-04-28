@@ -32,6 +32,7 @@ namespace Entity_Web_App
             // so YOU don't have to think about it.
             services.AddDbContext<ISchoolContext, SchoolContext>();
             services.AddDbContext<AnimalContext>();
+            services.Configure<DBConfig>(Configuration.GetSection("ConnectionStrings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,6 +10,7 @@ const routes: Routes = [
     component: StudentHomeComponent
   },
   {
+    // :id, is your route parameter, it is a PLACEHOLDER for an actual value when ROUTED to this route
     path: "student/:id", // the :id will be replaced with the provided route parameter
     component: StudentComponent
   },
