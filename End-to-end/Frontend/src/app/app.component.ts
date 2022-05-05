@@ -9,4 +9,8 @@ export class AppComponent {
   title = 'Frontend';
 
   name = "James";
+
+  age = 33;
+
+  
 }
