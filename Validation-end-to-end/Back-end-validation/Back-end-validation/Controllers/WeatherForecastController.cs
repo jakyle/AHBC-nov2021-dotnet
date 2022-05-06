@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Backend.Controllers
+namespace Back_end_validation.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -34,13 +34,6 @@ namespace Backend.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
-        }
-
-
-        [HttpPost]
-        public IActionResult Post(WeatherForecast forecast)
-        {
-            return Ok(forecast);
         }
     }
 }

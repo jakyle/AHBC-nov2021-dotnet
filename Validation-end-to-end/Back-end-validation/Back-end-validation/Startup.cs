@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Backend
+namespace Back_end_validation
 {
     public class Startup
     {
@@ -30,17 +30,7 @@ namespace Backend
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Backend", Version = "v1" });
-            });
-
-            services.AddCors(corsOptions =>
-            {
-                corsOptions.AddDefaultPolicy(corsPolicyBuilder =>
-                {
-                    corsPolicyBuilder.AllowAnyHeader();
-                    corsPolicyBuilder.AllowAnyMethod();
-                    corsPolicyBuilder.AllowAnyOrigin();
-                });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Back_end_validation", Version = "v1" });
             });
         }
 
@@ -51,10 +41,8 @@ namespace Backend
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Backend v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Back_end_validation v1"));
             }
-
-            app.UseCors();
 
             app.UseHttpsRedirection();
 

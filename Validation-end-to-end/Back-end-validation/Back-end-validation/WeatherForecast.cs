@@ -1,10 +1,9 @@
 using System;
 
-namespace Backend
+namespace Back_end_validation
 {
     public class WeatherForecast
     {
-        [Required]
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }

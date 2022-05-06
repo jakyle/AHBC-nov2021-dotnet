@@ -1,0 +1,14 @@
+<form [formGroup]="forecastFormGroup" (submit)="onSubmit()">
+
+	<label>date</label>
+	<input formControlName="date" />
+
+	<label>Temperature C</label>
+	<input formControlName="temperatureC" />
+
+	<label>summary</label>
+	<input formControlName="summary" />
+
+	<button>submit</button>
+
+</form>
