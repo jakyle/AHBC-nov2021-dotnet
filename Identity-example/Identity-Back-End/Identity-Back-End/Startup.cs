@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Identity_Back_End
@@ -28,17 +29,19 @@ namespace Identity_Back_End
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDbContext<UserContext>();
+
             services
                 .AddControllers()
                 .AddJsonOptions(jsonOptions =>
                 {
-                    jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                    jsonOptions.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                 });
 
             services.Configure<GithubOAuthSettings>(Configuration.GetSection("GithubOAuth"));
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(swaggerGenOptions =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Identity_Back_End", Version = "v1" });
+                swaggerGenOptions.SwaggerDoc("v1", new OpenApiInfo { Title = "Identity_Back_End", Version = "v1" });
             });
 
             services.AddCors(options =>

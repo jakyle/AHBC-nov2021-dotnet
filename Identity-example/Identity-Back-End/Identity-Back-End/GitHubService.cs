@@ -65,6 +65,15 @@ namespace Identity_Back_End
             //User - Agent: Awesome - Octocat - App
 
             var response = await _httpClient.SendAsync(request);
+
+            // if we get a non successful status code from sending in a token to Github, that means
+            // the token is bad, and the user is not logged in with your application using github,
+            // therefore we cannot return a GitHub user.
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
             var content = await response.Content.ReadAsStringAsync();
 
             var options = new JsonSerializerOptions
@@ -72,9 +81,9 @@ namespace Identity_Back_End
                 PropertyNameCaseInsensitive = true
             };
 
-            var user = JsonSerializer.Deserialize<GithubUser>(content, options);
+            var githubUser = JsonSerializer.Deserialize<GithubUser>(content, options);
 
-            return user;
+            return githubUser;
         }
     }
 }

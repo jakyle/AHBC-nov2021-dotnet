@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/Identity-Back-Endapi/apis/Identity-Back-End",
+      "type": "apis.azure"
+    }
+  }
+}

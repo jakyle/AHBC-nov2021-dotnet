@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/internal/operators/map';
 import { filter } from 'rxjs/internal/operators/filter';
@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _authService: AuthService) { }
+    private _authService: AuthService,
+    private _router: Router) { }
 
   onGithubLogin() {
     this._authService.redirectGitHubToken();
@@ -27,10 +28,13 @@ export class LoginComponent implements OnInit {
     this._activatedRoute.queryParams.pipe(
       map(params => ({code: params["code"], state: params["state"]})),
       filter(p => p.code && p.state && p.state === localStorage.getItem("authState")),
-      switchMap((p: {code: string}) => this._authService.getUser(p.code))
+      switchMap((p: {code: string}) => this._authService.githubLogin(p.code))
     ) 
-    .subscribe(user => alert(user.login));
+    .subscribe(user => {
+      localStorage.setItem("user", JSON.stringify(user));
+      this._authService.setUser(user);
+      this._router.navigate(["/"]);
+    });
   }
-  
 
 }
