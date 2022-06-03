@@ -28,6 +28,7 @@ namespace intro_web_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddDbContext<ISchoolContext, SchoolContext>();
             services.AddControllers();
             services.AddCors(corsOption =>
@@ -41,7 +42,6 @@ namespace intro_web_api
                     policy.AllowAnyOrigin(); // origin, is the actual domain thats calling this app
                 });
             });
-
 
             // swagger is a self document api library.  any controllers that has a [ApiController] attribute will
             // be auto documented by swagger.

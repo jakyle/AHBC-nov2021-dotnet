@@ -1,0 +1,21 @@
+<ng-container *ngIf="numbers$ | async as number; else NoNumbers">
+  <p>{{number}}</p>
+</ng-container>
+
+<ng-template #NoNumbers>
+  <p>The observable has NOT passed any subscribed data!</p>
+</ng-template>
+
+<img *ngIf="dogImg$ | async as dogImg"  [src]="dogImg"/>
+
+<p *ngIf="starWarsName$ | async as starWarsName">
+  {{starWarsName}}
+</p>
+
+<form>
+  <input [formControl]="numberFormControl" />
+</form>
+
+
+<button #button>CLICK TO ALERT NEW DOG</button>
+<img *ngIf="dogImageClick$ | async as dogImageClick" [src]="dogImageClick"/>

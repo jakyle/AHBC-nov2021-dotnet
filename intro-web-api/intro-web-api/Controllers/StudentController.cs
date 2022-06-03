@@ -16,6 +16,16 @@ namespace intro_web_api.Controllers
         public StudentController(ISchoolContext schoolContext)
         {
             _schoolContext = schoolContext;
+            var weather = new WeatherForecast();
+            var weatherTwo = weather;
+
+            weather.Date = System.DateTime.UtcNow;
+
+            int x = 2;
+            int y = x;
+
+            x += 3;
+
         }
 
 

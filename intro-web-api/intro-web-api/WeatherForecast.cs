@@ -4,6 +4,11 @@ namespace intro_web_api
 {
     public class WeatherForecast
     {
+        public WeatherForecast()
+        {
+            Console.WriteLine("hello world!");
+        }
+
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }
